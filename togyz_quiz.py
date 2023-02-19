@@ -8,7 +8,7 @@ cursorObj = conn.cursor()
 cursorObj.execute('SELECT * FROM fragen')
 
 for row in cursorObj:
-    print(f"{total+1}. {row[1]}")
+    print(f"{total+1}. {row[1]}:")
     print(f"1. {row[3]}")
     print(f"2. {row[4]}")
     print(f"3. {row[5]}")
@@ -21,12 +21,12 @@ for row in cursorObj:
     total += 1
     if answ == row[2]:
         correct += 1
-        print(f'Correct! {correct} out of {total}\n')
+        print(f'Correct! {correct} / {total}\n')
     else:
-        print(f'Wrong... {correct} out of {total}\n')
+        print(f'Wrong... {correct} / {total}\n')
 
 
-print(f'\nCorrect: {correct} out of {total}')
+print(f'\nCorrect: {correct} / {total}')
 
 cursorObj.close()
 conn.close()
